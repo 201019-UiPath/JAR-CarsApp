@@ -1,6 +1,7 @@
 using CarsDB.Models;
 using CarsDB;
 using CarsDB.Interfaces;
+using System.Collections.Generic;
 
 namespace CarsLib.Services
 {
@@ -15,7 +16,7 @@ namespace CarsLib.Services
 
         public List<Cars> GetAllCar()
         {
-            List<Cars> cars = repo.GetAllCar();
+            List<Cars> cars = repo.GetAllCars();
             return cars; 
         }
     }

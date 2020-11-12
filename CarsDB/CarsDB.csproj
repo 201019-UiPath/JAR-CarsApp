@@ -16,8 +16,5 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.json" Version="5.0.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
   </ItemGroup>
-  <ItemGroup>
-  <ProjectReference Include="..\CarsLib\CarsLib.csproj" />
-  </ItemGroup>
 
 </Project>
