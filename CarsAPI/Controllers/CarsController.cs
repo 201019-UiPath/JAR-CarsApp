@@ -10,7 +10,6 @@ namespace CarsAPI.Controllers
     [ApiController]
     public class CarsController : Controller
     {
-        private readonly 
         public IActionResult Index()
         {
             return View();

@@ -7,7 +7,7 @@ namespace CarsDB.Interfaces
     {
          List<Cars> GetAllCars();
          void AddCar(Cars car); 
-         void UpdateCare(Cars car);
+         void UpdateCar(Cars car);
          void DeleteCar(Cars car);
          Cars GetCarByCarId(int carId);
          Cars GetCarByYear(int yearId);

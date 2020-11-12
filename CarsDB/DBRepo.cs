@@ -55,7 +55,7 @@ namespace CarsDB
             return car;
         }
 
-        public void UpdateCare(Cars car)
+        public void UpdateCar(Cars car)
         {
             context.Cars.Update(car);
             context.SaveChanges();

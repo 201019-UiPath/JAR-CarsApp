@@ -19,5 +19,15 @@ namespace CarsLib.Services
             List<Cars> cars = repo.GetAllCars();
             return cars; 
         }
-    }
+
+        public void AddCar(Cars car)
+        {
+            repo.AddCar(car);
+        } 
+    //      public void UpdateCar(Cars car);
+    //      void DeleteCar(Cars car);
+    //      Cars GetCarByCarId(int carId);
+    //      Cars GetCarByYear(int yearId);
+    //      Cars GetCarByBrand(int brandId);
+    // }
 }
