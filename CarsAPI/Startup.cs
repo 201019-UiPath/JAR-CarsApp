@@ -39,7 +39,7 @@ namespace CarsAPI
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                     builder =>
                     {
-                        builder.WithOrigins("http://127.0.0.1:5500")
+                        builder.WithOrigins("*")
                         .AllowAnyMethod()
                         .AllowAnyHeader();
                     });
@@ -48,12 +48,8 @@ namespace CarsAPI
             services.AddDbContext<CarsContext>(options => options.UseNpgsql(Configuration.GetConnectionString("CarsDB")));
             services.AddScoped<CarServices>();
             services.AddScoped<ICarRepoMethods, DBRepo>();
-            services.AddDbContext<CarsContext>(options => options.UseNpgsql(Configuration.GetConnectionString("CarsDB")));
             services.AddScoped<BrandServices>();
             services.AddScoped<IBrandRepo, DBRepo>();
-            services.AddDbContext<CarsContext>(options => options.UseNpgsql(Configuration.GetConnectionString("CarsDB")));
-            services.AddScoped<CustomerServices>();
-            services.AddScoped<ICustomerRepo, DBRepo>();
             //services.AddScoped<IMapper, DBMapper>();
         }
 
@@ -70,13 +66,16 @@ namespace CarsAPI
             app.UseRouting();
 
             app.UseCors(MyAllowSpecificOrigins);
-
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            
+
         }
     }
 }

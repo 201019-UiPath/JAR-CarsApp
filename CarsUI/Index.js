@@ -1,8 +1,8 @@
 function AddACar()
 {
     let car = {};
-    car.brandsid = document.querySelector('#brandsid').value;
-    car.yearsid = document.querySelector('#yearsid').value;
+    car.brandsid = document.querySelector('#brandId').value;
+    car.yearsid = document.querySelector('#yearId').value;
     car.price = document.querySelector('#price').value;
 
     let xhr = new XMLHttpRequest();
@@ -10,14 +10,14 @@ function AddACar()
         if(this.readyState == 4 && this.response > 199 && this.respone < 300)
         {
             alert("New Car Added");
-            document.querySelector('#brandsid').value = '';
-            document.querySelector('#yearsid').value = '';
+            document.querySelector('#brandId').value = '';
+            document.querySelector('#yearId').value = '';
             document.querySelector('#price').value = '';
 
         }
     };
 
-    xhr.open("POST", 'https://localhost:44356/Car/add', true)
+    xhr.open("POST", 'https://localhost:5001/Cars/add', true)
 
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(car));
@@ -25,19 +25,19 @@ function AddACar()
 
 function GetAllCars()
 {
-    fetch('https://localhost:44356/Car/get')
+    fetch('https://localhost:5001/Cars/get')
     .then(response => response.json())
     .then(result => {
-        document.querySelectorAll('#cares tbody tr').forEach(element => element.remove());
-        let table = document.querySelector('#cares tbody');
+        document.querySelectorAll('#cars tbody tr').forEach(element => element.remove());
+        let table = document.querySelector('#cars tbody');
         for(let i = 0; i < result.length; ++i)
         {
             let row = table.insertRow(table.rows.length);
             let biCell = row.insertCell(0);
-            biCell.innerHTML = result[i].brandsid;
+            biCell.innerHTML = result[i].brandId;
 
             let yiCell = row.insertCell(1);
-            yiCell.innerHTML = result[i].yearsid;
+            yiCell.innerHTML = result[i].yearId;
 
             let priceCell = row.insertCell(2);
             priceCell.innerHTML = result[i].price;

@@ -11,7 +11,7 @@ namespace CarsDB
 {
     public class DBRepo : ICarRepoMethods, IBrandRepo
     {   
-        private CarsContext context = new CarsContext();
+        private CarsContext context;
         
         public DBRepo(CarsContext context){
 

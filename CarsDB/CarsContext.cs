@@ -10,7 +10,7 @@ namespace CarsDB
         public DbSet<Brands> Brands {get; set;}
         public DbSet<Cars> Cars {get; set;}
 
-
+        public CarsContext(DbContextOptions<CarsContext> options) : base(options){ }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
 
             //if no connection to database configure one 

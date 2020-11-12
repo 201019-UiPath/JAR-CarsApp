@@ -3,13 +3,9 @@ using CarsDB.Models;
 using CarsLib.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Cors;
-using CarsDB.Models;
 using CarsLib;
 
 namespace CarsAPI.Controllers
@@ -30,7 +26,7 @@ namespace CarsAPI.Controllers
         [Produces("application/json")]
         [EnableCors("_myAllowSpecificOrigins")]
         //[FormatFilter]
-        public IActionResult GetAllCars()
+        public IActionResult GetAllCar()
         {
             try
             {

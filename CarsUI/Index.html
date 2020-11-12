@@ -7,27 +7,46 @@
     <script src="Index.js"></script>
     <title>Cars</title>
 </head>
+<style>
+    .table{
+        background-color: #ED254E;
+        color : white;
+    }
+    body{
+        background-color: #F9DC5C;
+    }
+    .jumbotron {
+        background-color: #03CEA4 ;
+    }
+    .form-control {
+        background-color: #42273B ;
+    }
+    :-ms-input-placeholder {
+        color: white;
+    }
+
+</style>
 <body>  
-    <h1 class="jumbotron">Welcome to the Cars App!</h1>
+    <h1 class="jumbotron text-center">Welcome to the Cars App!</h1>
     <div class="container">
         <form action="">
             <div class="form-group">
-                <label for="brandsid">Car Brand:</label>
-                <input type="text" class="form-control" id='brandsid' placeholder="Enter Car Band">
+                <label for="brandId">Car Brand:</label>
+                <input type="text" class="form-control" id='brandId' placeholder="Enter Car Band">
             </div>
             <div class="form-group">
-                <label for="yearsid">Car Year:</label>
-                <input type="text" class="form-control" id='yearsid'placeholder="Enter Car Year">
+                <label for="yearId">Car Year:</label>
+                <input type="text" class="form-control" id='yearId'placeholder="Enter Car Year">
             </div>
             <div class="form-group">
                 <label for="price">Car Price:</label>
                 <input type="text" class="form-control" id='price'placeholder="Enter Car Price">
             </div>
-            <input type="button" value="Add a car" class="btn btn-warning" onclick="AddACar()">
+            <input type="button" value="Add a car" class="btn btn-secondary mt-2" onclick="AddACar()">
         </form>
     </div>
     <div class="container">
-        <input type="button" class="btn btn-info" value="Get all Cars" onclick="GetAllCars()">
+        <input type="button" class="btn btn-secondary mt-5" value="Get all Cars" onclick="GetAllCars()">
     </div>
     <div class="container">
         <table class="table" id="cars">
