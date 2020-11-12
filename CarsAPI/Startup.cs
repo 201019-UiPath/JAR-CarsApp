@@ -12,11 +12,17 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using CarsDB;
 using CarsLib;
+using Microsoft.EntityFrameworkCore;
+using CarsDB.Interfaces;
+using CarsLib.Services;
 
 namespace CarsAPI
 {
     public class Startup
     {
+
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,7 +35,26 @@ namespace CarsAPI
         {
             services.AddControllers();
 
-            // dbcontext, services, repos go here
+            services.AddCors(options => {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                    builder =>
+                    {
+                        builder.WithOrigins("http://127.0.0.1:5500")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                    });
+            });
+            services.AddControllers().AddXmlSerializerFormatters();
+            services.AddDbContext<CarsContext>(options => options.UseNpgsql(Configuration.GetConnectionString("CarsDB")));
+            services.AddScoped<CarServices>();
+            services.AddScoped<ICarRepoMethods, DBRepo>();
+            services.AddDbContext<CarsContext>(options => options.UseNpgsql(Configuration.GetConnectionString("CarsDB")));
+            services.AddScoped<BrandServices>();
+            services.AddScoped<IBrandRepo, DBRepo>();
+            services.AddDbContext<CarsContext>(options => options.UseNpgsql(Configuration.GetConnectionString("CarsDB")));
+            services.AddScoped<CustomerServices>();
+            services.AddScoped<ICustomerRepo, DBRepo>();
+            //services.AddScoped<IMapper, DBMapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +68,8 @@ namespace CarsAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 
