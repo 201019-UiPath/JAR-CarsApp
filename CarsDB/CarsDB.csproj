@@ -20,8 +20,4 @@
   <ProjectReference Include="..\CarsLib\CarsLib.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\carslib\carslib.csproj" />
-  </ItemGroup>
-
 </Project>

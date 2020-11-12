@@ -5,9 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarsAPI.Controllers
-{
+{   
+    [Route("[controller]")]
+    [ApiController]
     public class CarsController : Controller
     {
+        private readonly 
         public IActionResult Index()
         {
             return View();

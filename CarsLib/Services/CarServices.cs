@@ -1,13 +1,14 @@
 using CarsDB.Models;
 using CarsDB;
+using CarsDB.Interfaces;
 
 namespace CarsLib.Services
 {
     public class CarServices
     {
-        private ICarRepoMethod repo; 
+        private ICarRepoMethods repo; 
 
-        public CarServices(ICarRepoMethod repo)
+        public CarServices(ICarRepoMethods repo)
         {
             this.repo = repo;
         } 
