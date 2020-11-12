@@ -2,10 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using CarsLib;
+using CarsDB.Models;
 
 namespace CarsDB
 {
-    public class CarsContext : DBContext
+    public class CarsContext : DbContext
     {
         public DbSet<Brands> Brands {get; set;}
         public DbSet<Cars> Cars {get; set;}
