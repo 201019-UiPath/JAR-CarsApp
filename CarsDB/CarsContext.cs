@@ -9,12 +9,7 @@ namespace CarsDB
     {
         public DbSet<Brands> Brands {get; set;}
         public DbSet<Cars> Cars {get; set;}
-        public DbSet<Customer> Customer {get; set;}
-        public DbSet<Inventory> Inventories {get; set;}
-        public DbSet<Location> Locations {get; set;}
-        public DbSet<Order> Orders {get; set;}
-        public DbSet<OrderItem> OrderItems {get; set;}
-        public DbSet<Years> Years {get; set;}
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
 

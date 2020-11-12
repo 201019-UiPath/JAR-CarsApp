@@ -9,7 +9,7 @@ using CarsDB.Interfaces;
 
 namespace CarsDB
 {
-    public class DBRepo : ICarRepoMethods, IBrandRepo, ICustomerRepo
+    public class DBRepo : ICarRepoMethods, IBrandRepo
     {   
         private CarsContext context = new CarsContext();
         
@@ -31,12 +31,6 @@ namespace CarsDB
             context.SaveChanges();
         }
 
-        public void AddCustomer(Customer customer)
-        {
-            context.Customer.Add(customer);
-            context.SaveChanges();
-        }
-
         public void DeleteBrand(Brands brand)
         {
             context.Brands.Add(brand);
@@ -46,12 +40,6 @@ namespace CarsDB
         public void DeleteCar(Cars car)
         {
             context.Cars.Remove(car);
-            context.SaveChanges();
-        }
-
-        public void DeleteCustomer(Customer customer)
-        {
-            context.Customer.Remove(customer);
             context.SaveChanges();
         }
 
@@ -65,12 +53,6 @@ namespace CarsDB
         {
             List<Cars> car = context.Cars.Select(c => c).ToList();
             return car;
-        }
-
-        public List<Customer> GetAllCustomers()
-        {
-            List<Customer> cust = context.Customer.Select(c => c).ToList();
-            return cust;
         }
 
         public Brands GetBrandById(int brandId)
@@ -97,12 +79,6 @@ namespace CarsDB
             return car;
         }
 
-        public Customer GetCustomerById(int custId)
-        {
-            Customer cust = context.Customer.Single(c => c.Id == custId);
-            return cust;
-        }
-
         public void UpdateBrand(Brands brands)
         {
             context.Brands.Update(brands);
@@ -112,12 +88,6 @@ namespace CarsDB
         public void UpdateCar(Cars car)
         {
             context.Cars.Update(car);
-            context.SaveChanges();
-        }
-
-        public void UpdateCustomer(Customer customer)
-        {
-            context.Customer.Update(customer);
             context.SaveChanges();
         }
 
