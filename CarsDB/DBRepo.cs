@@ -21,7 +21,8 @@ namespace CarsDB
 
         public List<Cars> GetAllCars(){
 
-            return context.Cars.Select(x=> x).ToList();
+            List<Cars> car = context.Cars.Select(x=> x).ToList();
+            return car;
         }
     }
 }
