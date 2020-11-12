@@ -48,6 +48,12 @@ namespace CarsAPI
             services.AddDbContext<CarsContext>(options => options.UseNpgsql(Configuration.GetConnectionString("CarsDB")));
             services.AddScoped<CarServices>();
             services.AddScoped<ICarRepoMethods, DBRepo>();
+            services.AddDbContext<CarsContext>(options => options.UseNpgsql(Configuration.GetConnectionString("CarsDB")));
+            services.AddScoped<BrandServices>();
+            services.AddScoped<IBrandRepo, DBRepo>();
+            services.AddDbContext<CarsContext>(options => options.UseNpgsql(Configuration.GetConnectionString("CarsDB")));
+            services.AddScoped<CustomerServices>();
+            services.AddScoped<ICustomerRepo, DBRepo>();
             //services.AddScoped<IMapper, DBMapper>();
         }
 
